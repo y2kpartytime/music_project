@@ -1,0 +1,13 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://b4rukacajypkh"]
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_t146y"]
+resource_name = "Phaser"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_2jall"]
+resource_name = "Reverb"
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectPhaser_t146y")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectReverb_2jall")
+bus/0/effect/1/enabled = false
