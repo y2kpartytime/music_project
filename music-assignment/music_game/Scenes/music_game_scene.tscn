@@ -87,7 +87,6 @@ max_value = 5.0
 step = 0.001
 value = 1.0
 script = ExtResource("5_gvgg7")
-bus_name = "Pitch"
 
 [connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

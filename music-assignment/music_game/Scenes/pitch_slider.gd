@@ -1,13 +1,12 @@
 extends HSlider
 
-@export 
-var bus_name: String
-var bus_index: int
-var pitch_scale
+@onready var pitch_slider: HSlider = $"."
 
-func _ready() -> void:
-	bus_index = AudioServer.get_bus_index(bus_name)
+@onready var click_audio: AudioStreamPlayer = $"../click_audio"
 
+func _ready():
+	click_audio.pitch_scale = pitch_slider.value
+	pitch_slider.value_changed.connect(_on_slider_value_changed)
 
-func _on_value_changed(value: float) -> void:
-	"pitch_scale".()
+func _on_slider_value_changed(value: float) -> void:
+	click_audio.pitch_scale = value
