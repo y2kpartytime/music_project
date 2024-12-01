@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf8nk1apepjtd"]
+[gd_scene load_steps=9 format=3 uid="uid://cf8nk1apepjtd"]
 
 [ext_resource type="Script" path="res://Scripts/button_script.gd" id="1_dklts"]
 [ext_resource type="AudioStream" uid="uid://dov4mrx3rcxjr" path="res://Sounds/click_sound.mp3" id="2_jx8ms"]
 [ext_resource type="AudioStream" uid="uid://bosoe6g4tbpyp" path="res://Sounds/hover_sound.mp3" id="3_b5sko"]
 [ext_resource type="Script" path="res://Scenes/slider.gd" id="4_h7jhi"]
 [ext_resource type="Script" path="res://Scenes/pitch_slider.gd" id="5_gvgg7"]
+[ext_resource type="AudioStream" uid="uid://blbbv5g42bvf4" path="res://Sounds/chord1.mp3" id="6_bd0pc"]
 
 [sub_resource type="Gradient" id="Gradient_nbkld"]
-offsets = PackedFloat32Array(0.11039, 0.961039)
-colors = PackedColorArray(0.760784, 0.317647, 0.305882, 1, 1, 0.403922, 0.329412, 1)
+colors = PackedColorArray(0.830655, 0.495535, 0.490945, 1, 1, 0.403922, 0.329412, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lr1e3"]
 gradient = SubResource("Gradient_nbkld")
@@ -26,19 +26,21 @@ grow_vertical = 2
 [node name="Button" type="Button" parent="."]
 light_mask = 9
 layout_mode = 2
-offset_left = 520.0
-offset_top = 288.0
-offset_right = 630.0
-offset_bottom = 324.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 134.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 tooltip_text = "Click me!"
-text = "Click me!"
+text = "Impact
+"
 icon = SubResource("GradientTexture2D_lr1e3")
 script = ExtResource("1_dklts")
 
 [node name="click_audio" type="AudioStreamPlayer" parent="Button"]
 stream = ExtResource("2_jx8ms")
+volume_db = -20.0
 bus = &"SFX"
 
 [node name="hover_audio" type="AudioStreamPlayer" parent="Button"]
@@ -55,9 +57,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -55.0
-offset_top = 36.0
+offset_top = 30.0
 offset_right = 55.0
-offset_bottom = 52.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 tooltip_text = "Volume"
@@ -76,9 +78,53 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -55.0
-offset_top = 64.0
+offset_top = 54.0
 offset_right = 55.0
-offset_bottom = 80.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Volume"
+min_value = 0.5
+max_value = 3.0
+step = 0.001
+value = 1.0
+script = ExtResource("5_gvgg7")
+
+[node name="Button2" type="Button" parent="."]
+light_mask = 9
+offset_left = 192.0
+offset_top = 24.0
+offset_right = 302.0
+offset_bottom = 60.0
+tooltip_text = "Click me!"
+text = "Chord
+"
+icon = SubResource("GradientTexture2D_lr1e3")
+script = ExtResource("1_dklts")
+
+[node name="click_audio" type="AudioStreamPlayer" parent="Button2"]
+stream = ExtResource("6_bd0pc")
+volume_db = -20.0
+pitch_scale = 0.58
+bus = &"SFX"
+
+[node name="hover_audio" type="AudioStreamPlayer" parent="Button2"]
+stream = ExtResource("3_b5sko")
+volume_db = -3.748
+pitch_scale = 2.04
+bus = &"Hover_Sound"
+
+[node name="volume_slider" type="HSlider" parent="Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 30.0
+offset_right = 55.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 tooltip_text = "Volume"
@@ -86,9 +132,59 @@ min_value = 1.0
 max_value = 5.0
 step = 0.001
 value = 1.0
+script = ExtResource("4_h7jhi")
+bus_name = "SFX"
+
+[node name="pitch_slider" type="HSlider" parent="Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 54.0
+offset_right = 55.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Volume"
+max_value = 3.0
+step = 0.001
+value = 1.0
 script = ExtResource("5_gvgg7")
+
+[node name="CheckBox" type="CheckBox" parent="Button2"]
+modulate = Color(1, 0.227451, 0.278431, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = 91.0
+offset_right = 19.0
+offset_bottom = 115.0
+scale = Vector2(1.69398, 1.76734)
+
+[node name="CheckBox2" type="CheckBox" parent="Button2"]
+offset_left = 36.0
+offset_top = 91.0
+offset_right = 60.0
+offset_bottom = 115.0
+scale = Vector2(1.69398, 1.76734)
+
+[node name="CheckBox3" type="CheckBox" parent="Button2"]
+offset_left = 77.0
+offset_top = 91.0
+offset_right = 101.0
+offset_bottom = 115.0
+scale = Vector2(1.69398, 1.76734)
 
 [connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="value_changed" from="Button/volume_slider" to="Button/volume_slider" method="_on_value_changed"]
 [connection signal="value_changed" from="Button/pitch_slider" to="Button/pitch_slider" method="_on_value_changed"]
+[connection signal="mouse_entered" from="Button2" to="Button2" method="_on_mouse_entered"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[connection signal="value_changed" from="Button2/volume_slider" to="Button2/volume_slider" method="_on_value_changed"]
+[connection signal="value_changed" from="Button2/pitch_slider" to="Button2/pitch_slider" method="_on_value_changed"]
+[connection signal="mouse_entered" from="Button2/CheckBox" to="Button" method="_on_check_box_mouse_entered"]
+[connection signal="toggled" from="Button2/CheckBox" to="Button" method="_on_check_box_toggled"]
+[connection signal="toggled" from="Button2/CheckBox2" to="Button" method="_on_check_box_2_toggled"]

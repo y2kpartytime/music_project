@@ -1,10 +1,15 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://b78qpqw7vlkf2"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://b78qpqw7vlkf2"]
 
 [sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_lw36h"]
 resource_name = "PitchShift"
 
-[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_o1niq"]
-resource_name = "PitchShift"
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_u254s"]
+resource_name = "Reverb"
+wet = 0.0
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_1cd2s"]
+resource_name = "Reverb"
+wet = 1.0
 
 [resource]
 bus/1/name = &"Hover_Sound"
@@ -27,5 +32,13 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"Master"
-bus/3/effect/0/effect = SubResource("AudioEffectPitchShift_o1niq")
+bus/3/effect/0/effect = SubResource("AudioEffectReverb_u254s")
 bus/3/effect/0/enabled = true
+bus/4/name = &"ReverbBus"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -7.63485
+bus/4/send = &"Master"
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_1cd2s")
+bus/4/effect/0/enabled = true
