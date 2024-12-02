@@ -37,10 +37,12 @@ func _on_check_box_mouse_entered() -> void:
 	if !hover_audio_player.playing and !click_audio_player.playing:
 		hover_audio_player.play()
 
-
 func _on_check_box_2_toggled(toggled_on: bool) -> void:
 	var effect = AudioServer.get_bus_effect(3, 0)
 	effect.wet = 1
 	print("reverb toggled")
 	if !toggled_on:
 		effect.wet = 0
+
+func _on_check_box_3_toggled(toggled_on: bool) -> void:
+	pass

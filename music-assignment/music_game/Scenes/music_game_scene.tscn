@@ -92,6 +92,7 @@ script = ExtResource("5_gvgg7")
 
 [node name="Button2" type="Button" parent="."]
 light_mask = 9
+layout_mode = 0
 offset_left = 192.0
 offset_top = 24.0
 offset_right = 302.0
@@ -164,6 +165,7 @@ offset_bottom = 115.0
 scale = Vector2(1.69398, 1.76734)
 
 [node name="CheckBox2" type="CheckBox" parent="Button2"]
+layout_mode = 0
 offset_left = 36.0
 offset_top = 91.0
 offset_right = 60.0
@@ -171,6 +173,7 @@ offset_bottom = 115.0
 scale = Vector2(1.69398, 1.76734)
 
 [node name="CheckBox3" type="CheckBox" parent="Button2"]
+layout_mode = 0
 offset_left = 77.0
 offset_top = 91.0
 offset_right = 101.0
@@ -188,3 +191,4 @@ scale = Vector2(1.69398, 1.76734)
 [connection signal="mouse_entered" from="Button2/CheckBox" to="Button" method="_on_check_box_mouse_entered"]
 [connection signal="toggled" from="Button2/CheckBox" to="Button" method="_on_check_box_toggled"]
 [connection signal="toggled" from="Button2/CheckBox2" to="Button" method="_on_check_box_2_toggled"]
+[connection signal="toggled" from="Button2/CheckBox3" to="Button" method="_on_check_box_3_toggled"]
