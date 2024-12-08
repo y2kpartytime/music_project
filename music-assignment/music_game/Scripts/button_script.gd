@@ -1,10 +1,9 @@
 extends Button
+
 @onready var reverb_bus = AudioServer.get_bus_index("ReverbBus")
 @onready var sfx_bus = AudioServer.get_bus_index("SFXBus")
 @onready var click_audio_player: AudioStreamPlayer = $click_audio 
 @onready var hover_audio_player: AudioStreamPlayer = $hover_audio  
-
-
 
 func _ready() -> void:
 	pass
@@ -17,6 +16,7 @@ func _on_pressed() -> void:
 	click_audio_player.stop()
 	click_audio_player.play()
 	hover_audio_player.stop()
+	$"../PointLight2D/AnimationPlayer".play("Pulse")
 
 #HOVER SOUND
 func _on_mouse_entered() -> void:
