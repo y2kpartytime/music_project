@@ -14,9 +14,10 @@ func _process(delta: float) -> void:
 
 #CLICK SOUND
 func _on_pressed() -> void:
-	if !click_audio_player.playing:
-		click_audio_player.play()
-		hover_audio_player.stop()
+
+	click_audio_player.stop()
+	click_audio_player.play()
+	hover_audio_player.stop()
 
 #HOVER SOUND
 func _on_mouse_entered() -> void:

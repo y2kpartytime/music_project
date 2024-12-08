@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8cs6rth43sw0"
+path="res://.godot/imported/skullcrusher dnb.mp3-cc07abeb583906897e733213c0675cdb.mp3str"
+
+[deps]
+
+source_file="res://Sounds/drums/skullcrusher dnb.mp3"
+dest_files=["res://.godot/imported/skullcrusher dnb.mp3-cc07abeb583906897e733213c0675cdb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.017
+bpm=0.0
+beat_count=0
+bar_beats=4

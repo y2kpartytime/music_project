@@ -1,22 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://cf8nk1apepjtd"]
+[gd_scene load_steps=19 format=3 uid="uid://cf8nk1apepjtd"]
 
 [ext_resource type="Script" path="res://Scripts/button_script.gd" id="1_dklts"]
-[ext_resource type="AudioStream" uid="uid://dov4mrx3rcxjr" path="res://Sounds/click_sound.mp3" id="2_jx8ms"]
-[ext_resource type="AudioStream" uid="uid://bosoe6g4tbpyp" path="res://Sounds/hover_sound.mp3" id="3_b5sko"]
+[ext_resource type="Texture2D" uid="uid://twwerntbq8db" path="res://Scenes/icon1.tres" id="1_u5dhf"]
+[ext_resource type="AudioStream" uid="uid://bosoe6g4tbpyp" path="res://Sounds/fx/hover_sound.mp3" id="3_b5sko"]
+[ext_resource type="AudioStream" uid="uid://bhsloswhtodlh" path="res://Sounds/fx/wub1.mp3" id="3_rk0bx"]
 [ext_resource type="Script" path="res://Scenes/slider.gd" id="4_h7jhi"]
 [ext_resource type="Script" path="res://Scenes/pitch_slider.gd" id="5_gvgg7"]
-[ext_resource type="AudioStream" uid="uid://blbbv5g42bvf4" path="res://Sounds/chord1.mp3" id="6_bd0pc"]
-[ext_resource type="AudioStream" uid="uid://b8cs6rth43sw0" path="res://Sounds/skullcrusher dnb.mp3" id="7_x5b3k"]
-[ext_resource type="AudioStream" uid="uid://ddbecv1xe67m7" path="res://Sounds/break loop 1.mp3" id="8_50e5w"]
-[ext_resource type="AudioStream" uid="uid://1wnbhq4mvgwq" path="res://Sounds/mecha.mp3" id="9_0bofx"]
-[ext_resource type="AudioStream" uid="uid://di5kn824dj4br" path="res://Sounds/808.mp3" id="10_3fq40"]
-[ext_resource type="AudioStream" uid="uid://c854yyfmhhbje" path="res://Sounds/tense.mp3" id="11_5lcls"]
+[ext_resource type="AudioStream" uid="uid://blbbv5g42bvf4" path="res://Sounds/fx/chord1.mp3" id="6_bd0pc"]
+[ext_resource type="AudioStream" uid="uid://2gbt6ldyrhut" path="res://Sounds/fx/chord2.mp3" id="7_3043w"]
+[ext_resource type="AudioStream" uid="uid://b8cs6rth43sw0" path="res://Sounds/drums/skullcrusher dnb.mp3" id="7_x5b3k"]
+[ext_resource type="AudioStream" uid="uid://ddbecv1xe67m7" path="res://Sounds/drums/break loop 1.mp3" id="8_50e5w"]
+[ext_resource type="AudioStream" uid="uid://b24u7okbaye8h" path="res://Sounds/fx/chord3.mp3" id="8_fid6l"]
+[ext_resource type="AudioStream" uid="uid://1wnbhq4mvgwq" path="res://Sounds/fx/mecha.mp3" id="9_0bofx"]
+[ext_resource type="AudioStream" uid="uid://b2ad1u2ijix6g" path="res://Sounds/drums/break2.mp3" id="9_15efu"]
+[ext_resource type="AudioStream" uid="uid://bfduwu7c73qmf" path="res://Sounds/fx/tom 1.mp3" id="9_x814j"]
+[ext_resource type="AudioStream" uid="uid://b4xqbpx1lxjw3" path="res://Sounds/fx/bebebebe.mp3" id="10_hiujl"]
+[ext_resource type="AudioStream" uid="uid://c854yyfmhhbje" path="res://Sounds/fx/tense.mp3" id="11_5lcls"]
 
-[sub_resource type="Gradient" id="Gradient_nbkld"]
-colors = PackedColorArray(0.830655, 0.495535, 0.490945, 1, 1, 0.403922, 0.329412, 1)
+[sub_resource type="Gradient" id="Gradient_6reli"]
+offsets = PackedFloat32Array(0, 0.511335, 0.944584)
+colors = PackedColorArray(0.647059, 0.607843, 0, 1, 0.511328, 0.471723, 0.241591, 1, 0.752941, 0.756863, 0.168627, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lr1e3"]
-gradient = SubResource("Gradient_nbkld")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_unx1t"]
+gradient = SubResource("Gradient_6reli")
 width = 28
 height = 28
 
@@ -28,34 +34,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Impact" type="Button" parent="."]
 light_mask = 9
 layout_mode = 2
 offset_left = 24.0
-offset_top = 24.0
+offset_top = 158.0
 offset_right = 134.0
-offset_bottom = 60.0
+offset_bottom = 194.0
 grow_horizontal = 2
 grow_vertical = 2
 tooltip_text = "Click me!"
 focus_mode = 0
 text = "Impact
 "
-icon = SubResource("GradientTexture2D_lr1e3")
+icon = ExtResource("1_u5dhf")
 script = ExtResource("1_dklts")
 
-[node name="click_audio" type="AudioStreamPlayer" parent="Button"]
-stream = ExtResource("2_jx8ms")
-volume_db = -20.0
+[node name="click_audio" type="AudioStreamPlayer" parent="Impact"]
+stream = ExtResource("3_rk0bx")
+volume_db = -15.0
 bus = &"SFX"
 
-[node name="hover_audio" type="AudioStreamPlayer" parent="Button"]
+[node name="hover_audio" type="AudioStreamPlayer" parent="Impact"]
 stream = ExtResource("3_b5sko")
 volume_db = -3.748
 pitch_scale = 2.04
 bus = &"Hover_Sound"
 
-[node name="pitch_slider" type="HSlider" parent="Button"]
+[node name="pitch_slider" type="HSlider" parent="Impact"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -68,14 +74,15 @@ offset_right = 55.0
 offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "Volume"
+tooltip_text = "Pitch"
 min_value = 0.5
-max_value = 3.0
-step = 0.001
+max_value = 2.0
+step = 0.1
 value = 1.0
 script = ExtResource("5_gvgg7")
 
-[node name="loop_box" type="CheckBox" parent="Button"]
+[node name="loop_box" type="CheckBox" parent="Impact"]
+layout_mode = 0
 offset_left = -7.0
 offset_top = 63.0
 offset_right = 17.0
@@ -83,7 +90,430 @@ offset_bottom = 87.0
 scale = Vector2(1.95196, 2.25538)
 focus_mode = 0
 
-[node name="Button2" type="Button" parent="."]
+[node name="Chord" type="Button" parent="."]
+light_mask = 9
+layout_mode = 0
+offset_left = 544.0
+offset_top = 158.0
+offset_right = 654.0
+offset_bottom = 194.0
+tooltip_text = "Click me!"
+focus_mode = 0
+text = "Chord
+"
+icon = ExtResource("1_u5dhf")
+script = ExtResource("1_dklts")
+
+[node name="click_audio" type="AudioStreamPlayer" parent="Chord"]
+stream = ExtResource("6_bd0pc")
+volume_db = -20.0
+pitch_scale = 0.58
+bus = &"SFX"
+
+[node name="hover_audio" type="AudioStreamPlayer" parent="Chord"]
+stream = ExtResource("3_b5sko")
+volume_db = -3.748
+pitch_scale = 2.04
+bus = &"Hover_Sound"
+
+[node name="pitch_slider" type="HSlider" parent="Chord"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 27.0
+offset_right = 55.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Pitch"
+max_value = 3.0
+step = 0.001
+value = 1.0
+script = ExtResource("5_gvgg7")
+
+[node name="loop_box" type="CheckBox" parent="Chord"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 63.0
+offset_right = 17.0
+offset_bottom = 87.0
+scale = Vector2(1.95196, 2.25538)
+focus_mode = 0
+
+[node name="Chord2" type="Button" parent="."]
+light_mask = 9
+layout_mode = 0
+offset_left = 671.0
+offset_top = 158.0
+offset_right = 781.0
+offset_bottom = 194.0
+tooltip_text = "Click me!"
+focus_mode = 0
+text = "Chord 2
+"
+icon = ExtResource("1_u5dhf")
+script = ExtResource("1_dklts")
+
+[node name="click_audio" type="AudioStreamPlayer" parent="Chord2"]
+stream = ExtResource("7_3043w")
+volume_db = -10.0
+pitch_scale = 0.58
+bus = &"SFX"
+
+[node name="hover_audio" type="AudioStreamPlayer" parent="Chord2"]
+stream = ExtResource("3_b5sko")
+volume_db = -3.748
+pitch_scale = 2.04
+bus = &"Hover_Sound"
+
+[node name="pitch_slider" type="HSlider" parent="Chord2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 27.0
+offset_right = 55.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Pitch"
+max_value = 3.0
+step = 0.1
+script = ExtResource("5_gvgg7")
+
+[node name="loop_box" type="CheckBox" parent="Chord2"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 63.0
+offset_right = 17.0
+offset_bottom = 87.0
+scale = Vector2(1.95196, 2.25538)
+focus_mode = 0
+
+[node name="Chord3" type="Button" parent="."]
+light_mask = 9
+layout_mode = 0
+offset_left = 799.0
+offset_top = 158.0
+offset_right = 909.0
+offset_bottom = 194.0
+tooltip_text = "Click me!"
+focus_mode = 0
+text = "Chord 3
+"
+icon = ExtResource("1_u5dhf")
+script = ExtResource("1_dklts")
+
+[node name="click_audio" type="AudioStreamPlayer" parent="Chord3"]
+stream = ExtResource("8_fid6l")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="hover_audio" type="AudioStreamPlayer" parent="Chord3"]
+stream = ExtResource("3_b5sko")
+volume_db = -3.748
+pitch_scale = 2.04
+bus = &"Hover_Sound"
+
+[node name="pitch_slider" type="HSlider" parent="Chord3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 27.0
+offset_right = 55.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Pitch"
+max_value = 3.0
+step = 0.1
+script = ExtResource("5_gvgg7")
+
+[node name="loop_box" type="CheckBox" parent="Chord3"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 63.0
+offset_right = 17.0
+offset_bottom = 87.0
+scale = Vector2(1.95196, 2.25538)
+focus_mode = 0
+
+[node name="Mech" type="Button" parent="."]
+light_mask = 9
+layout_mode = 0
+offset_left = 150.0
+offset_top = 158.0
+offset_right = 260.0
+offset_bottom = 194.0
+tooltip_text = "Click me!"
+focus_mode = 0
+text = "Mech
+"
+icon = ExtResource("1_u5dhf")
+script = ExtResource("1_dklts")
+
+[node name="click_audio" type="AudioStreamPlayer" parent="Mech"]
+stream = ExtResource("9_0bofx")
+volume_db = -27.172
+bus = &"SFX"
+
+[node name="hover_audio" type="AudioStreamPlayer" parent="Mech"]
+stream = ExtResource("3_b5sko")
+volume_db = -3.748
+pitch_scale = 2.04
+bus = &"Hover_Sound"
+
+[node name="pitch_slider" type="HSlider" parent="Mech"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 27.0
+offset_right = 55.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Pitch"
+max_value = 3.0
+step = 0.001
+value = 1.0
+script = ExtResource("5_gvgg7")
+
+[node name="loop_box" type="CheckBox" parent="Mech"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 63.0
+offset_right = 17.0
+offset_bottom = 87.0
+scale = Vector2(1.95196, 2.25538)
+focus_mode = 0
+
+[node name="Pattern 1" type="Button" parent="."]
+light_mask = 9
+layout_mode = 0
+offset_left = 24.0
+offset_top = 293.0
+offset_right = 134.0
+offset_bottom = 329.0
+tooltip_text = "Click me!"
+focus_mode = 0
+text = "Pattern 1
+"
+icon = ExtResource("1_u5dhf")
+script = ExtResource("1_dklts")
+
+[node name="click_audio" type="AudioStreamPlayer" parent="Pattern 1"]
+stream = ExtResource("10_hiujl")
+bus = &"SFX"
+
+[node name="hover_audio" type="AudioStreamPlayer" parent="Pattern 1"]
+stream = ExtResource("3_b5sko")
+volume_db = -3.748
+pitch_scale = 2.04
+bus = &"Hover_Sound"
+
+[node name="pitch_slider" type="HSlider" parent="Pattern 1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 27.0
+offset_right = 55.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Pitch"
+max_value = 1.0
+step = 0.1
+value = 1.0
+script = ExtResource("5_gvgg7")
+
+[node name="loop_box" type="CheckBox" parent="Pattern 1"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 63.0
+offset_right = 17.0
+offset_bottom = 87.0
+scale = Vector2(1.95196, 2.25538)
+focus_mode = 0
+
+[node name="808" type="Button" parent="."]
+light_mask = 9
+layout_mode = 0
+offset_left = 281.0
+offset_top = 158.0
+offset_right = 391.0
+offset_bottom = 194.0
+tooltip_text = "Click me!"
+focus_mode = 0
+text = "808"
+icon = ExtResource("1_u5dhf")
+script = ExtResource("1_dklts")
+
+[node name="click_audio" type="AudioStreamPlayer" parent="808"]
+stream = ExtResource("9_x814j")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="hover_audio" type="AudioStreamPlayer" parent="808"]
+stream = ExtResource("3_b5sko")
+volume_db = -3.748
+pitch_scale = 2.04
+bus = &"Hover_Sound"
+
+[node name="pitch_slider" type="HSlider" parent="808"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 27.0
+offset_right = 55.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Pitch"
+min_value = 0.5
+max_value = 1.2
+step = 0.001
+value = 1.0
+script = ExtResource("5_gvgg7")
+
+[node name="loop_box" type="CheckBox" parent="808"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 63.0
+offset_right = 17.0
+offset_bottom = 87.0
+scale = Vector2(1.95196, 2.25538)
+focus_mode = 0
+
+[node name="Orchestral Hit" type="Button" parent="."]
+light_mask = 9
+layout_mode = 0
+offset_left = 412.0
+offset_top = 158.0
+offset_right = 522.0
+offset_bottom = 194.0
+tooltip_text = "Click me!"
+focus_mode = 0
+text = "Orch. hit"
+icon = ExtResource("1_u5dhf")
+script = ExtResource("1_dklts")
+
+[node name="click_audio" type="AudioStreamPlayer" parent="Orchestral Hit"]
+stream = ExtResource("11_5lcls")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="hover_audio" type="AudioStreamPlayer" parent="Orchestral Hit"]
+stream = ExtResource("3_b5sko")
+volume_db = -3.748
+pitch_scale = 2.04
+bus = &"Hover_Sound"
+
+[node name="pitch_slider" type="HSlider" parent="Orchestral Hit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 27.0
+offset_right = 55.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Pitch"
+min_value = 0.5
+max_value = 1.2
+step = 0.001
+value = 1.0
+script = ExtResource("5_gvgg7")
+
+[node name="loop_box" type="CheckBox" parent="Orchestral Hit"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 63.0
+offset_right = 17.0
+offset_bottom = 87.0
+scale = Vector2(1.95196, 2.25538)
+focus_mode = 0
+
+[node name="Drum 1" type="Button" parent="."]
+light_mask = 9
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 134.0
+offset_bottom = 60.0
+tooltip_text = "Click me!"
+focus_mode = 0
+text = "Drum 1"
+icon = SubResource("GradientTexture2D_unx1t")
+script = ExtResource("1_dklts")
+
+[node name="click_audio" type="AudioStreamPlayer" parent="Drum 1"]
+stream = ExtResource("7_x5b3k")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="hover_audio" type="AudioStreamPlayer" parent="Drum 1"]
+stream = ExtResource("3_b5sko")
+volume_db = -3.748
+pitch_scale = 2.04
+bus = &"Hover_Sound"
+
+[node name="pitch_slider" type="HSlider" parent="Drum 1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 27.0
+offset_right = 55.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Pitch"
+min_value = 0.5
+max_value = 1.2
+step = 0.001
+value = 1.0
+script = ExtResource("5_gvgg7")
+
+[node name="loop_box" type="CheckBox" parent="Drum 1"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 63.0
+offset_right = 17.0
+offset_bottom = 87.0
+scale = Vector2(1.95196, 2.25538)
+focus_mode = 0
+
+[node name="Drum 2" type="Button" parent="."]
 light_mask = 9
 layout_mode = 0
 offset_left = 150.0
@@ -92,24 +522,23 @@ offset_right = 260.0
 offset_bottom = 60.0
 tooltip_text = "Click me!"
 focus_mode = 0
-text = "Chord
+text = "Drum 2
 "
-icon = SubResource("GradientTexture2D_lr1e3")
+icon = SubResource("GradientTexture2D_unx1t")
 script = ExtResource("1_dklts")
 
-[node name="click_audio" type="AudioStreamPlayer" parent="Button2"]
-stream = ExtResource("6_bd0pc")
+[node name="click_audio" type="AudioStreamPlayer" parent="Drum 2"]
+stream = ExtResource("8_50e5w")
 volume_db = -20.0
-pitch_scale = 0.58
 bus = &"SFX"
 
-[node name="hover_audio" type="AudioStreamPlayer" parent="Button2"]
+[node name="hover_audio" type="AudioStreamPlayer" parent="Drum 2"]
 stream = ExtResource("3_b5sko")
 volume_db = -3.748
 pitch_scale = 2.04
 bus = &"Hover_Sound"
 
-[node name="pitch_slider" type="HSlider" parent="Button2"]
+[node name="pitch_slider" type="HSlider" parent="Drum 2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -122,13 +551,15 @@ offset_right = 55.0
 offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "Volume"
-max_value = 3.0
+tooltip_text = "Pitch"
+min_value = 0.5
+max_value = 1.2
 step = 0.001
 value = 1.0
 script = ExtResource("5_gvgg7")
 
-[node name="loop_box" type="CheckBox" parent="Button2"]
+[node name="loop_box" type="CheckBox" parent="Drum 2"]
+layout_mode = 0
 offset_left = -7.0
 offset_top = 63.0
 offset_right = 17.0
@@ -136,30 +567,85 @@ offset_bottom = 87.0
 scale = Vector2(1.95196, 2.25538)
 focus_mode = 0
 
-[node name="Button3" type="Button" parent="."]
+[node name="Drum 3" type="Button" parent="."]
 light_mask = 9
+layout_mode = 0
 offset_left = 281.0
 offset_top = 24.0
 offset_right = 391.0
 offset_bottom = 60.0
 tooltip_text = "Click me!"
 focus_mode = 0
-text = "Drum 1"
-icon = SubResource("GradientTexture2D_lr1e3")
+text = "Drum 3
+"
+icon = SubResource("GradientTexture2D_unx1t")
 script = ExtResource("1_dklts")
 
-[node name="click_audio" type="AudioStreamPlayer" parent="Button3"]
+[node name="click_audio" type="AudioStreamPlayer" parent="Drum 3"]
+stream = ExtResource("9_15efu")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="hover_audio" type="AudioStreamPlayer" parent="Drum 3"]
+stream = ExtResource("3_b5sko")
+volume_db = -3.748
+pitch_scale = 2.04
+bus = &"Hover_Sound"
+
+[node name="pitch_slider" type="HSlider" parent="Drum 3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 27.0
+offset_right = 55.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Pitch"
+min_value = 0.5
+max_value = 3.0
+step = 0.001
+value = 1.0
+script = ExtResource("5_gvgg7")
+
+[node name="loop_box" type="CheckBox" parent="Drum 3"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 63.0
+offset_right = 17.0
+offset_bottom = 87.0
+scale = Vector2(1.95196, 2.25538)
+focus_mode = 0
+
+[node name="Drum 4" type="Button" parent="."]
+light_mask = 9
+layout_mode = 0
+offset_left = 414.0
+offset_top = 24.0
+offset_right = 524.0
+offset_bottom = 60.0
+tooltip_text = "Click me!"
+focus_mode = 0
+text = "Drum 4"
+icon = SubResource("GradientTexture2D_unx1t")
+script = ExtResource("1_dklts")
+
+[node name="click_audio" type="AudioStreamPlayer" parent="Drum 4"]
 stream = ExtResource("7_x5b3k")
 volume_db = -20.0
 bus = &"SFX"
 
-[node name="hover_audio" type="AudioStreamPlayer" parent="Button3"]
+[node name="hover_audio" type="AudioStreamPlayer" parent="Drum 4"]
 stream = ExtResource("3_b5sko")
 volume_db = -3.748
 pitch_scale = 2.04
 bus = &"Hover_Sound"
 
-[node name="pitch_slider" type="HSlider" parent="Button3"]
+[node name="pitch_slider" type="HSlider" parent="Drum 4"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -172,14 +658,15 @@ offset_right = 55.0
 offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "Volume"
+tooltip_text = "Pitch"
 min_value = 0.5
 max_value = 1.2
 step = 0.001
 value = 1.0
 script = ExtResource("5_gvgg7")
 
-[node name="loop_box" type="CheckBox" parent="Button3"]
+[node name="loop_box" type="CheckBox" parent="Drum 4"]
+layout_mode = 0
 offset_left = -7.0
 offset_top = 63.0
 offset_right = 17.0
@@ -187,52 +674,32 @@ offset_bottom = 87.0
 scale = Vector2(1.95196, 2.25538)
 focus_mode = 0
 
-[node name="Button4" type="Button" parent="."]
+[node name="Drum 5" type="Button" parent="."]
 light_mask = 9
-offset_left = 412.0
+layout_mode = 0
+offset_left = 540.0
 offset_top = 24.0
-offset_right = 522.0
+offset_right = 650.0
 offset_bottom = 60.0
 tooltip_text = "Click me!"
 focus_mode = 0
-text = "Drum 2
+text = "Drum 5
 "
-icon = SubResource("GradientTexture2D_lr1e3")
+icon = SubResource("GradientTexture2D_unx1t")
 script = ExtResource("1_dklts")
 
-[node name="click_audio" type="AudioStreamPlayer" parent="Button4"]
+[node name="click_audio" type="AudioStreamPlayer" parent="Drum 5"]
 stream = ExtResource("8_50e5w")
 volume_db = -20.0
 bus = &"SFX"
 
-[node name="hover_audio" type="AudioStreamPlayer" parent="Button4"]
+[node name="hover_audio" type="AudioStreamPlayer" parent="Drum 5"]
 stream = ExtResource("3_b5sko")
 volume_db = -3.748
 pitch_scale = 2.04
 bus = &"Hover_Sound"
 
-[node name="volume_slider" type="HSlider" parent="Button4"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -378.0
-offset_top = 368.0
-offset_right = -268.0
-offset_bottom = 384.0
-grow_horizontal = 2
-grow_vertical = 2
-tooltip_text = "Volume"
-min_value = 1.0
-max_value = 5.0
-step = 0.001
-value = 1.0
-script = ExtResource("4_h7jhi")
-bus_name = "SFX"
-
-[node name="pitch_slider" type="HSlider" parent="Button4"]
+[node name="pitch_slider" type="HSlider" parent="Drum 5"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -245,14 +712,15 @@ offset_right = 55.0
 offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "Volume"
+tooltip_text = "Pitch"
 min_value = 0.5
 max_value = 1.2
 step = 0.001
 value = 1.0
 script = ExtResource("5_gvgg7")
 
-[node name="loop_box" type="CheckBox" parent="Button4"]
+[node name="loop_box" type="CheckBox" parent="Drum 5"]
+layout_mode = 0
 offset_left = -7.0
 offset_top = 63.0
 offset_right = 17.0
@@ -260,17 +728,71 @@ offset_bottom = 87.0
 scale = Vector2(1.95196, 2.25538)
 focus_mode = 0
 
-[node name="CheckBox" type="CheckBox" parent="."]
+[node name="Drum 6" type="Button" parent="."]
+light_mask = 9
+layout_mode = 0
+offset_left = 671.0
+offset_top = 24.0
+offset_right = 781.0
+offset_bottom = 60.0
+tooltip_text = "Click me!"
+focus_mode = 0
+text = "Drum 6
+"
+icon = SubResource("GradientTexture2D_unx1t")
+script = ExtResource("1_dklts")
+
+[node name="click_audio" type="AudioStreamPlayer" parent="Drum 6"]
+stream = ExtResource("9_15efu")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="hover_audio" type="AudioStreamPlayer" parent="Drum 6"]
+stream = ExtResource("3_b5sko")
+volume_db = -3.748
+pitch_scale = 2.04
+bus = &"Hover_Sound"
+
+[node name="pitch_slider" type="HSlider" parent="Drum 6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 27.0
+offset_right = 55.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Pitch"
+min_value = 0.5
+max_value = 3.0
+step = 0.001
+value = 1.0
+script = ExtResource("5_gvgg7")
+
+[node name="loop_box" type="CheckBox" parent="Drum 6"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 63.0
+offset_right = 17.0
+offset_bottom = 87.0
+scale = Vector2(1.95196, 2.25538)
+focus_mode = 0
+
+[node name="Mute" type="CheckBox" parent="."]
 modulate = Color(1, 0.227451, 0.278431, 1)
 layout_mode = 0
 offset_left = 24.0
-offset_top = 433.0
+offset_top = 551.0
 offset_right = 48.0
-offset_bottom = 457.0
+offset_bottom = 575.0
 scale = Vector2(2.7137, 2.83122)
 focus_mode = 0
 
-[node name="TextEdit" type="TextEdit" parent="CheckBox"]
+[node name="TextEdit" type="TextEdit" parent="Mute"]
 layout_mode = 0
 offset_left = 21.2517
 offset_top = 2.82911
@@ -281,16 +803,17 @@ text = "Mute button"
 editable = false
 selecting_enabled = false
 
-[node name="CheckBox2" type="CheckBox" parent="."]
+[node name="Wet" type="CheckBox" parent="."]
 layout_mode = 0
-offset_left = 24.0001
-offset_top = 549.0
-offset_right = 48.0001
-offset_bottom = 573.0
+offset_left = 24.0
+offset_top = 429.0
+offset_right = 48.0
+offset_bottom = 453.0
 scale = Vector2(2.7137, 2.83122)
 focus_mode = 0
 
-[node name="TextEdit" type="TextEdit" parent="CheckBox2"]
+[node name="TextEdit" type="TextEdit" parent="Wet"]
+layout_mode = 0
 offset_left = 21.2517
 offset_top = 2.82911
 offset_right = 127.252
@@ -300,7 +823,7 @@ text = "Chorus/Wet"
 editable = false
 selecting_enabled = false
 
-[node name="CheckBox3" type="CheckBox" parent="."]
+[node name="Loop All" type="CheckBox" parent="."]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 491.0
@@ -309,7 +832,8 @@ offset_bottom = 515.0
 scale = Vector2(2.7137, 2.83122)
 focus_mode = 0
 
-[node name="TextEdit" type="TextEdit" parent="CheckBox3"]
+[node name="TextEdit" type="TextEdit" parent="Loop All"]
+layout_mode = 0
 offset_left = 21.2517
 offset_top = 2.82911
 offset_right = 127.252
@@ -319,248 +843,88 @@ text = "   Loop ALL"
 editable = false
 selecting_enabled = false
 
-[node name="Button5" type="Button" parent="."]
-light_mask = 9
-offset_left = 24.0
-offset_top = 158.0
-offset_right = 134.0
-offset_bottom = 194.0
-tooltip_text = "Click me!"
-focus_mode = 0
-text = "Drum 3
-"
-icon = SubResource("GradientTexture2D_lr1e3")
-script = ExtResource("1_dklts")
-
-[node name="click_audio" type="AudioStreamPlayer" parent="Button5"]
-stream = ExtResource("2_jx8ms")
-volume_db = -20.0
-bus = &"SFX"
-
-[node name="hover_audio" type="AudioStreamPlayer" parent="Button5"]
-stream = ExtResource("3_b5sko")
-volume_db = -3.748
-pitch_scale = 2.04
-bus = &"Hover_Sound"
-
-[node name="pitch_slider" type="HSlider" parent="Button5"]
+[node name="volume_slider" type="HSlider" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -55.0
-offset_top = 27.0
-offset_right = 55.0
-offset_bottom = 43.0
+offset_left = -349.0
+offset_top = 244.0
+offset_right = -239.0
+offset_bottom = 260.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2.04121, 2.04121)
 tooltip_text = "Volume"
-min_value = 0.5
-max_value = 3.0
+min_value = 1.0
+max_value = 5.0
 step = 0.001
 value = 1.0
-script = ExtResource("5_gvgg7")
+script = ExtResource("4_h7jhi")
+bus_name = "SFX"
 
-[node name="loop_box" type="CheckBox" parent="Button5"]
-offset_left = -7.0
-offset_top = 63.0
-offset_right = 17.0
-offset_bottom = 87.0
-scale = Vector2(1.95196, 2.25538)
-focus_mode = 0
-
-[node name="Button6" type="Button" parent="."]
-light_mask = 9
-offset_left = 150.0
-offset_top = 158.0
-offset_right = 260.0
-offset_bottom = 194.0
-tooltip_text = "Click me!"
-focus_mode = 0
-text = "Mech
-"
-icon = SubResource("GradientTexture2D_lr1e3")
-script = ExtResource("1_dklts")
-
-[node name="click_audio" type="AudioStreamPlayer" parent="Button6"]
-stream = ExtResource("9_0bofx")
-volume_db = -20.0
-pitch_scale = 1.51
-bus = &"SFX"
-
-[node name="hover_audio" type="AudioStreamPlayer" parent="Button6"]
-stream = ExtResource("3_b5sko")
-volume_db = -3.748
-pitch_scale = 2.04
-bus = &"Hover_Sound"
-
-[node name="pitch_slider" type="HSlider" parent="Button6"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -55.0
-offset_top = 27.0
-offset_right = 55.0
-offset_bottom = 43.0
-grow_horizontal = 2
-grow_vertical = 2
-tooltip_text = "Volume"
-max_value = 3.0
-step = 0.001
-value = 1.0
-script = ExtResource("5_gvgg7")
-
-[node name="loop_box" type="CheckBox" parent="Button6"]
-offset_left = -7.0
-offset_top = 63.0
-offset_right = 17.0
-offset_bottom = 87.0
-scale = Vector2(1.95196, 2.25538)
-focus_mode = 0
-
-[node name="Button7" type="Button" parent="."]
-light_mask = 9
-offset_left = 281.0
-offset_top = 158.0
-offset_right = 391.0
-offset_bottom = 194.0
-tooltip_text = "Click me!"
-focus_mode = 0
-text = "808"
-icon = SubResource("GradientTexture2D_lr1e3")
-script = ExtResource("1_dklts")
-
-[node name="click_audio" type="AudioStreamPlayer" parent="Button7"]
-stream = ExtResource("10_3fq40")
-volume_db = -20.0
-bus = &"SFX"
-
-[node name="hover_audio" type="AudioStreamPlayer" parent="Button7"]
-stream = ExtResource("3_b5sko")
-volume_db = -3.748
-pitch_scale = 2.04
-bus = &"Hover_Sound"
-
-[node name="pitch_slider" type="HSlider" parent="Button7"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -55.0
-offset_top = 27.0
-offset_right = 55.0
-offset_bottom = 43.0
-grow_horizontal = 2
-grow_vertical = 2
-tooltip_text = "Volume"
-min_value = 0.5
-max_value = 1.2
-step = 0.001
-value = 1.0
-script = ExtResource("5_gvgg7")
-
-[node name="loop_box" type="CheckBox" parent="Button7"]
-offset_left = -7.0
-offset_top = 63.0
-offset_right = 17.0
-offset_bottom = 87.0
-scale = Vector2(1.95196, 2.25538)
-focus_mode = 0
-
-[node name="Button8" type="Button" parent="."]
-light_mask = 9
-offset_left = 412.0
-offset_top = 158.0
-offset_right = 522.0
-offset_bottom = 194.0
-tooltip_text = "Click me!"
-focus_mode = 0
-text = "Orch. hit"
-icon = SubResource("GradientTexture2D_lr1e3")
-script = ExtResource("1_dklts")
-
-[node name="click_audio" type="AudioStreamPlayer" parent="Button8"]
-stream = ExtResource("11_5lcls")
-volume_db = -20.0
-bus = &"SFX"
-
-[node name="hover_audio" type="AudioStreamPlayer" parent="Button8"]
-stream = ExtResource("3_b5sko")
-volume_db = -3.748
-pitch_scale = 2.04
-bus = &"Hover_Sound"
-
-[node name="pitch_slider" type="HSlider" parent="Button8"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -55.0
-offset_top = 27.0
-offset_right = 55.0
-offset_bottom = 43.0
-grow_horizontal = 2
-grow_vertical = 2
-tooltip_text = "Volume"
-min_value = 0.5
-max_value = 1.2
-step = 0.001
-value = 1.0
-script = ExtResource("5_gvgg7")
-
-[node name="loop_box" type="CheckBox" parent="Button8"]
-offset_left = -7.0
-offset_top = 63.0
-offset_right = 17.0
-offset_bottom = 87.0
-scale = Vector2(1.95196, 2.25538)
-focus_mode = 0
-
-[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="value_changed" from="Button/pitch_slider" to="Button/pitch_slider" method="_on_value_changed"]
-[connection signal="toggled" from="Button/loop_box" to="Button" method="_on_check_box_3_toggled"]
-[connection signal="mouse_entered" from="Button2" to="Button2" method="_on_mouse_entered"]
-[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
-[connection signal="value_changed" from="Button2/pitch_slider" to="Button2/pitch_slider" method="_on_value_changed"]
-[connection signal="toggled" from="Button2/loop_box" to="Button2" method="_on_loop_box_toggled"]
-[connection signal="mouse_entered" from="Button3" to="Button3" method="_on_mouse_entered"]
-[connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
-[connection signal="value_changed" from="Button3/pitch_slider" to="Button3/pitch_slider" method="_on_value_changed"]
-[connection signal="toggled" from="Button3/loop_box" to="Button3" method="_on_loop_box_toggled"]
-[connection signal="mouse_entered" from="Button4" to="Button4" method="_on_mouse_entered"]
-[connection signal="pressed" from="Button4" to="Button4" method="_on_pressed"]
-[connection signal="value_changed" from="Button4/volume_slider" to="Button4/volume_slider" method="_on_value_changed"]
-[connection signal="value_changed" from="Button4/pitch_slider" to="Button4/pitch_slider" method="_on_value_changed"]
-[connection signal="toggled" from="Button4/loop_box" to="Button4" method="_on_loop_box_toggled"]
-[connection signal="mouse_entered" from="CheckBox" to="Button" method="_on_check_box_mouse_entered"]
-[connection signal="toggled" from="CheckBox" to="Button" method="_on_check_box_toggled"]
-[connection signal="toggled" from="CheckBox2" to="Button" method="_on_check_box_2_toggled"]
-[connection signal="toggled" from="CheckBox3" to="Button" method="_on_check_box_3_toggled"]
-[connection signal="toggled" from="CheckBox3" to="Button2" method="_on_check_box_3_toggled"]
-[connection signal="toggled" from="CheckBox3" to="Button3" method="_on_check_box_3_toggled"]
-[connection signal="mouse_entered" from="Button5" to="Button5" method="_on_mouse_entered"]
-[connection signal="pressed" from="Button5" to="Button5" method="_on_pressed"]
-[connection signal="value_changed" from="Button5/pitch_slider" to="Button5/pitch_slider" method="_on_value_changed"]
-[connection signal="toggled" from="Button5/loop_box" to="Button5" method="_on_check_box_3_toggled"]
-[connection signal="mouse_entered" from="Button6" to="Button6" method="_on_mouse_entered"]
-[connection signal="pressed" from="Button6" to="Button6" method="_on_pressed"]
-[connection signal="value_changed" from="Button6/pitch_slider" to="Button6/pitch_slider" method="_on_value_changed"]
-[connection signal="toggled" from="Button6/loop_box" to="Button6" method="_on_loop_box_toggled"]
-[connection signal="mouse_entered" from="Button7" to="Button7" method="_on_mouse_entered"]
-[connection signal="pressed" from="Button7" to="Button7" method="_on_pressed"]
-[connection signal="value_changed" from="Button7/pitch_slider" to="Button7/pitch_slider" method="_on_value_changed"]
-[connection signal="toggled" from="Button7/loop_box" to="Button7" method="_on_loop_box_toggled"]
-[connection signal="mouse_entered" from="Button8" to="Button8" method="_on_mouse_entered"]
-[connection signal="pressed" from="Button8" to="Button8" method="_on_pressed"]
-[connection signal="value_changed" from="Button8/pitch_slider" to="Button8/pitch_slider" method="_on_value_changed"]
-[connection signal="toggled" from="Button8/loop_box" to="Button8" method="_on_loop_box_toggled"]
+[connection signal="mouse_entered" from="Impact" to="Impact" method="_on_mouse_entered"]
+[connection signal="pressed" from="Impact" to="Impact" method="_on_pressed"]
+[connection signal="value_changed" from="Impact/pitch_slider" to="Impact/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Impact/loop_box" to="Impact" method="_on_check_box_3_toggled"]
+[connection signal="mouse_entered" from="Chord" to="Chord" method="_on_mouse_entered"]
+[connection signal="pressed" from="Chord" to="Chord" method="_on_pressed"]
+[connection signal="value_changed" from="Chord/pitch_slider" to="Chord/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Chord/loop_box" to="Chord" method="_on_loop_box_toggled"]
+[connection signal="mouse_entered" from="Chord2" to="Chord2" method="_on_mouse_entered"]
+[connection signal="pressed" from="Chord2" to="Chord2" method="_on_pressed"]
+[connection signal="value_changed" from="Chord2/pitch_slider" to="Chord2/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Chord2/loop_box" to="Chord2" method="_on_loop_box_toggled"]
+[connection signal="mouse_entered" from="Chord3" to="Chord3" method="_on_mouse_entered"]
+[connection signal="pressed" from="Chord3" to="Chord3" method="_on_pressed"]
+[connection signal="value_changed" from="Chord3/pitch_slider" to="Chord3/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Chord3/loop_box" to="Chord3" method="_on_loop_box_toggled"]
+[connection signal="mouse_entered" from="Mech" to="Mech" method="_on_mouse_entered"]
+[connection signal="pressed" from="Mech" to="Mech" method="_on_pressed"]
+[connection signal="value_changed" from="Mech/pitch_slider" to="Mech/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Mech/loop_box" to="Mech" method="_on_loop_box_toggled"]
+[connection signal="mouse_entered" from="Pattern 1" to="Pattern 1" method="_on_mouse_entered"]
+[connection signal="pressed" from="Pattern 1" to="Pattern 1" method="_on_pressed"]
+[connection signal="value_changed" from="Pattern 1/pitch_slider" to="Pattern 1/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Pattern 1/loop_box" to="Pattern 1" method="_on_loop_box_toggled"]
+[connection signal="mouse_entered" from="808" to="808" method="_on_mouse_entered"]
+[connection signal="pressed" from="808" to="808" method="_on_pressed"]
+[connection signal="value_changed" from="808/pitch_slider" to="808/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="808/loop_box" to="808" method="_on_loop_box_toggled"]
+[connection signal="mouse_entered" from="Orchestral Hit" to="Orchestral Hit" method="_on_mouse_entered"]
+[connection signal="pressed" from="Orchestral Hit" to="Orchestral Hit" method="_on_pressed"]
+[connection signal="value_changed" from="Orchestral Hit/pitch_slider" to="Orchestral Hit/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Orchestral Hit/loop_box" to="Orchestral Hit" method="_on_loop_box_toggled"]
+[connection signal="mouse_entered" from="Drum 1" to="Drum 1" method="_on_mouse_entered"]
+[connection signal="pressed" from="Drum 1" to="Drum 1" method="_on_pressed"]
+[connection signal="value_changed" from="Drum 1/pitch_slider" to="Drum 1/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Drum 1/loop_box" to="Drum 1" method="_on_loop_box_toggled"]
+[connection signal="mouse_entered" from="Drum 2" to="Drum 2" method="_on_mouse_entered"]
+[connection signal="pressed" from="Drum 2" to="Drum 2" method="_on_pressed"]
+[connection signal="value_changed" from="Drum 2/pitch_slider" to="Drum 2/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Drum 2/loop_box" to="Drum 2" method="_on_loop_box_toggled"]
+[connection signal="mouse_entered" from="Drum 3" to="Drum 3" method="_on_mouse_entered"]
+[connection signal="pressed" from="Drum 3" to="Drum 3" method="_on_pressed"]
+[connection signal="value_changed" from="Drum 3/pitch_slider" to="Drum 3/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Drum 3/loop_box" to="Drum 3" method="_on_check_box_3_toggled"]
+[connection signal="mouse_entered" from="Drum 4" to="Drum 4" method="_on_mouse_entered"]
+[connection signal="pressed" from="Drum 4" to="Drum 4" method="_on_pressed"]
+[connection signal="value_changed" from="Drum 4/pitch_slider" to="Drum 4/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Drum 4/loop_box" to="Drum 4" method="_on_loop_box_toggled"]
+[connection signal="mouse_entered" from="Drum 5" to="Drum 5" method="_on_mouse_entered"]
+[connection signal="pressed" from="Drum 5" to="Drum 5" method="_on_pressed"]
+[connection signal="value_changed" from="Drum 5/pitch_slider" to="Drum 5/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Drum 5/loop_box" to="Drum 5" method="_on_loop_box_toggled"]
+[connection signal="mouse_entered" from="Drum 6" to="Drum 6" method="_on_mouse_entered"]
+[connection signal="pressed" from="Drum 6" to="Drum 6" method="_on_pressed"]
+[connection signal="value_changed" from="Drum 6/pitch_slider" to="Drum 6/pitch_slider" method="_on_value_changed"]
+[connection signal="toggled" from="Drum 6/loop_box" to="Drum 6" method="_on_check_box_3_toggled"]
+[connection signal="mouse_entered" from="Mute" to="Impact" method="_on_check_box_mouse_entered"]
+[connection signal="toggled" from="Mute" to="Impact" method="_on_check_box_toggled"]
+[connection signal="toggled" from="Wet" to="Impact" method="_on_check_box_2_toggled"]
+[connection signal="toggled" from="Loop All" to="Impact" method="_on_check_box_3_toggled"]
+[connection signal="toggled" from="Loop All" to="Chord" method="_on_check_box_3_toggled"]
+[connection signal="toggled" from="Loop All" to="Drum 1" method="_on_check_box_3_toggled"]
+[connection signal="value_changed" from="volume_slider" to="volume_slider" method="_on_value_changed"]
