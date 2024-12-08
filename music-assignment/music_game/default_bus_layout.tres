@@ -12,12 +12,13 @@ resource_name = "Reverb"
 wet = 1.0
 
 [resource]
+bus/0/send = &"New Bus"
 bus/1/name = &"Hover_Sound"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
-bus/1/send = &""
+bus/1/send = &"New Bus"
 bus/2/name = &"Pitch"
 bus/2/solo = false
 bus/2/mute = false
