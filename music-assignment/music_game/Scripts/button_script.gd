@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 
 #CLICK SOUND
 func _on_pressed() -> void:
-
 	click_audio_player.stop()
 	click_audio_player.play()
 	hover_audio_player.stop()
@@ -40,7 +39,7 @@ func _on_check_box_mouse_entered() -> void:
 #WET
 func _on_check_box_2_toggled(toggled_on: bool) -> void:
 	var effect = AudioServer.get_bus_effect(3, 0)
-	effect.wet = 1
+	effect.wet = 0.5
 	print("reverb toggled")
 	if !toggled_on:
 		effect.wet = 0
@@ -52,6 +51,22 @@ func _on_check_box_3_toggled(toggled_on: bool) -> void:
 	else:
 		click_audio_player.stream.loop = false
 
-
+#LOOP toggle func
 func _on_loop_box_toggled(toggled_on: bool) -> void:
 	_on_check_box_3_toggled(toggled_on)
+
+#DELAY values
+func _on_h_slider_value_changed(value: float) -> void:
+	var effect = AudioServer.get_bus_effect(3, 1)
+	effect.dry = value
+	if effect:
+		effect.amount = value
+		return
+
+#DELAY toggle
+func _on_delay_toggled(toggled_on: bool) -> void:
+	var effect = AudioServer.get_bus_effect(3, 1)
+	effect.tap1_active = true
+	print("delay toggled")
+	if !toggled_on:
+		effect.tap1_active = false

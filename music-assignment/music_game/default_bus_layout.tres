@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://b78qpqw7vlkf2"]
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://b78qpqw7vlkf2"]
 
 [sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_lw36h"]
 resource_name = "PitchShift"
@@ -6,6 +6,14 @@ resource_name = "PitchShift"
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_u254s"]
 resource_name = "Reverb"
 wet = 0.0
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_knsyu"]
+resource_name = "Delay"
+tap1_active = false
+tap2_active = false
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_60p7b"]
+resource_name = "SpectrumAnalyzer"
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_1cd2s"]
 resource_name = "Reverb"
@@ -35,6 +43,10 @@ bus/3/volume_db = 0.0
 bus/3/send = &"Master"
 bus/3/effect/0/effect = SubResource("AudioEffectReverb_u254s")
 bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectDelay_knsyu")
+bus/3/effect/1/enabled = true
+bus/3/effect/2/effect = SubResource("AudioEffectSpectrumAnalyzer_60p7b")
+bus/3/effect/2/enabled = true
 bus/4/name = &"ReverbBus"
 bus/4/solo = false
 bus/4/mute = false
