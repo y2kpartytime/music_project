@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgmibsxia2kp1"]
+
+[ext_resource type="Texture2D" uid="uid://dj83kmdle5bg3" path="res://Scenes/island.jpg" id="1_hkaww"]
+[ext_resource type="Script" path="res://button_2.gd" id="2_5c60b"]
+[ext_resource type="Script" path="res://Scenes/start.gd" id="2_6waal"]
+
+[node name="TextureRect" type="TextureRect"]
+self_modulate = Color(1, 0.901961, 0.909804, 0.717647)
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -51.0
+offset_right = 1072.0
+offset_bottom = 760.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.529896, 0.533118)
+mouse_filter = 2
+texture = ExtResource("1_hkaww")
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.789
+offset_top = -54.2269
+offset_right = -91.7891
+offset_bottom = -23.2269
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.595, 6.595)
+text = "Start"
+script = ExtResource("2_6waal")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.466
+offset_top = 249.646
+offset_right = -84.4661
+offset_bottom = 280.646
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.595, 6.595)
+text = "Quit"
+script = ExtResource("2_5c60b")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+top_level = true
+light_mask = 0
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 156.0
+offset_top = 77.0
+offset_right = 156.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.742941, 0.250776)
+mouse_filter = 2
+color = Color(0.137255, 0.752941, 0.25098, 0.32549)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(1, 0.979333, 0.69, 1)
+top_level = true
+layout_mode = 0
+offset_left = 178.0
+offset_top = 101.0
+offset_right = 446.3
+offset_bottom = 149.965
+scale = Vector2(3.07723, 3.8551)
+text = "Ambient Island Music Soundboard"
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]
+[connection signal="button_down" from="Button2" to="Button2" method="_on_button_down"]

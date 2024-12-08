@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwuuvx121jqb6"
+path="res://.godot/imported/dread bass.mp3-74762cd62341899df522b76c54146548.mp3str"
+
+[deps]
+
+source_file="res://Sounds/fx/dread bass.mp3"
+dest_files=["res://.godot/imported/dread bass.mp3-74762cd62341899df522b76c54146548.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=1.4
+bpm=0.0
+beat_count=0
+bar_beats=4
