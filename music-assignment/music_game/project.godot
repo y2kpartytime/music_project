@@ -10,9 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Music_Game"
-run/main_scene="res://Scenes/music_game_scene.tscn"
+config/name="Ambient Isle"
+run/main_scene="res://Scenes/Title.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0.427, 0.7, 0.6909, 1)
+boot_splash/image="res://Sprites/dangerzone.png"
 config/icon="res://Sprites/icon.svg"
 
 [input]
