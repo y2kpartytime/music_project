@@ -1,5 +1,4 @@
 # music_project document
--Edward Sanders, TU984
 
 The project is a DnB/Jungle soundboard kit. It's a simple DAW-like project, designed for the user to get familiar with the common tools and sounds used in the creation of Jungle and DnB music. 
 
